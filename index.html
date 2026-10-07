@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body, html {
+            margin-top: 0;
+            overflow: hidden;
+        }
+        #main-car {
+            position: absolute;
+            width: 20vh;
+            height: 100px;
+            rotate: 270deg;
+            right: 45%;
+            top: 80%;
+            z-index: 3;
+            animation: car 4s 0s infinite normal linear;
+        }
+        @keyframes car {
+            0% {
+                right: 45%;
+            }
+            25% {
+                right: 58%;
+            }
+            50% {
+                right: 58%;
+            }
+            75% {
+                right: 32%;
+            }
+            100% {
+                right: 45%;
+            }
+        }
+        #road {
+            position: absolute;
+            height: 100vh;
+            width: 40%;
+            background-color: gray;
+            left: 30%;
+            z-index: 1;
+        }
+        .yellow {
+            height: 100vh;
+            width: 10px;
+            background-color: yellow;
+            position: absolute;
+            z-index: 2;
+        }
+
+        .obstacle {
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            background-color: #e74c3c;
+            border: 3px solid #c0392b;
+            box-sizing: border-box;
+            border-radius: 8px;
+            z-index: 3;
+            top: -80px;
+        }
+
+        #obs-middle {
+            right: 48%;
+            animation: fall-middle 4s infinite linear;
+        }
+
+        #obs-left {
+            right: 61%;
+            animation: fall-left 4s infinite linear;
+        }
+
+        #obs-right {
+            right: 35%;
+            animation: fall-right 4s infinite linear;
+        }
+        @keyframes fall-middle {
+            0% { top: -80px; opacity: 1; }
+            30% { top: 105vh; opacity: 1; }
+            30.1%, 100% { top: -80px; opacity: 0; }
+        }
+        @keyframes fall-left {
+            0%, 32.9% { top: -80px; opacity: 0; }
+            33% { top: -80px; opacity: 1; }
+            70% { top: 105vh; opacity: 1; }
+            70.1%, 100% { top: -80px; opacity: 0; }
+        }
+        @keyframes fall-right {
+            0%, 65.9% { top: -80px; opacity: 0; }
+            66% { top: -80px; opacity: 1; }
+            96% { top: 105vh; opacity: 1; }
+            96.1%, 100% { top: -80px; opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+    <div class="yellow" style="right: 42.5%;"></div>
+    <div class="yellow" style="left: 42.5%;"></div>
+    <div id="road"></div>
+
+    <div class="obstacle" id="obs-middle"></div>
+    <div class="obstacle" id="obs-left"></div>
+    <div class="obstacle" id="obs-right"></div>
+
+    <img src="mainCar.png" alt="" id="main-car">
+</body>
+</html>
